@@ -15,6 +15,7 @@ import Enrolled_course from './pages/EnrolledCourse/EnrolledCourse';
 import Bookmarked from './pages/BookmarkedCourse/Bookmarked';
 import Home from './pages/Home/Home/Home';
 import Courses from './pages/Courses/Courses';
+import Login from './pages/Login/Login';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path:'registration',
         element:<Registration></Registration>
+      },
+      {
+        path:'login',
+        element: <Login></Login>
       }
     ]
   }
@@ -64,6 +69,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-[1400px] mx-auto'>
     <React.StrictMode>
        <RouterProvider router={router}></RouterProvider>
-     </React.StrictMode>,
+     </React.StrictMode>
   </div>
 )

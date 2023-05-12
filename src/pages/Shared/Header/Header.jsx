@@ -32,8 +32,8 @@ const Header = () => {
                         <p>My account</p>
                         <UserCircleIcon className='w-6 h-6 primary-text-color ml-2 '></UserCircleIcon>
                     </NavLink>
-                    <NavLink to="/registration" >
-                        <button className='btn'>Registration</button>
+                    <NavLink to="/login" >
+                        <button className='btn'>Login</button>
                     </NavLink>
                 </div>
             </ul>
