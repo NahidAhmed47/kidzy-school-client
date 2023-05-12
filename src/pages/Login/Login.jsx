@@ -1,15 +1,47 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import LoginAnimation from '../Shared/LoginAnimation/LoginAnimation';
+import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [loginMode, setLoginMode] = useState(true);
+    const {loginWithEmail, signInWithGoogle} = useContext(AuthContext);
+    const [error, setError] = useState('')
     const handleForm = (e)=>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        loginWithEmail(email, password)
+        .then(result => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            form.reset()
+        })
+        .catch(err => {
+            setError(err.message)
+        })
+    }
+    // google sign in
+    const googleSignIn = ()=>{
+        signInWithGoogle()
+        .then(result =>{
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err => {
+            setError(err.message)
+        })
     }
     return (
         <div className='min-h-[80vh] my-10'>
@@ -18,7 +50,7 @@ const Login = () => {
                     <LoginAnimation></LoginAnimation>
                 </div>
                 <div className=' bg-white border shadow-xl h-fit max-w-[420px] rounded-md p-4 md:px-8 md:py-12'>
-                {/* <p className='text-red-500 text-center my-2 '></p> */}
+                <p className='text-red-500 text-center my-2 '>{error}</p>
                     <div className='flex justify-between'>
                         <button onClick={()=>setLoginMode(true)} className={loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Student Login</button>
                         <button onClick={()=>setLoginMode(false)} className={!loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Teachers Login</button>
@@ -36,8 +68,7 @@ const Login = () => {
                             <p className='text-slate-500'>or</p>
                             <hr className='w-[40%]'/>
                         </div>
-                        <button className='sign-in-with-style hover-login-btn'><FaGoogle className='w-4 h-4'></FaGoogle>Sign in with Google</button>
-                        <button className='sign-in-with-style mt-3 hover-login-btn'><FaGithub className='w-4 h-4'></FaGithub>Sign in with Github</button>
+                        <button className='sign-in-with-style hover-login-btn' onClick={googleSignIn}><FaGoogle className='w-4 h-4'></FaGoogle>Sign in with Google</button>
                     </div>
                     }
                     {
@@ -53,8 +84,7 @@ const Login = () => {
                             <p className='text-slate-500'>or</p>
                             <hr className='w-[40%]'/>
                         </div>
-                        <button className='sign-in-with-style hover-login-btn'><FaGoogle className='w-4 h-4'></FaGoogle>Sign in with Google</button>
-                        <button className='sign-in-with-style mt-3 hover-login-btn'><FaGithub className='w-4 h-4'></FaGithub>Sign in with Github</button>
+                        <button className='sign-in-with-style hover-login-btn' onClick={googleSignIn}><FaGoogle className='w-4 h-4'></FaGoogle>Sign in with Google</button>
                     </div>
                     }
                     <p className='text-base text-center text-slate-600 mb-2'>Don't have an account? Please <Link to="/registration" className='text-red-500 underline'>Register</Link></p>

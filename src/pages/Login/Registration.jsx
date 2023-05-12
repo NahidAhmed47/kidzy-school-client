@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Registration = () => {
     const [loginMode, setLoginMode] = useState(true);
-    const {createUser, updateUser} = useContext(AuthContext);
+    const {createUser, updateUser, signInWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState('')
     const handleForm = (e)=>{
         e.preventDefault();
@@ -40,6 +40,21 @@ const Registration = () => {
             setError(err.message)
         })
     }
+    // google sign in
+    const googleSignIn = ()=>{
+        signInWithGoogle()
+        .then(result =>{
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err => {
+            setError(err.message)
+        })
+    }
     return (
         <div className='min-h-[80vh] mt-20'>
         <div className='flex  justify-around items-center max-container'>
@@ -66,8 +81,7 @@ const Registration = () => {
                         <p className='text-slate-500'>or</p>
                         <hr className='w-[40%]'/>
                     </div>
-                    <button className='sign-in-with-style hover-login-btn' ><FaGoogle className='w-4 h-4'></FaGoogle>Create account with Google</button>
-                    <button className='sign-in-with-style mt-3 hover-login-btn' ><FaGithub className='w-4 h-4'></FaGithub>Create account with Github</button>
+                    <button className='sign-in-with-style hover-login-btn' onClick={googleSignIn}><FaGoogle className='w-4 h-4'></FaGoogle>Create account with Google</button>
                 </div>
                 }
                 {
@@ -84,8 +98,7 @@ const Registration = () => {
                         <p className='text-slate-500'>or</p>
                         <hr className='w-[40%]'/>
                     </div>
-                    <button className='sign-in-with-style hover-login-btn' ><FaGoogle className='w-4 h-4'></FaGoogle>Create account with Google</button>
-                    <button className='sign-in-with-style mt-3 hover-login-btn' ><FaGithub className='w-4 h-4'></FaGithub>Create account with Github</button>
+                    <button className='sign-in-with-style hover-login-btn' onClick={googleSignIn}><FaGoogle className='w-4 h-4'></FaGoogle>Create account with Google</button>
                 </div>
                 }
                 <p className='text-base text-center text-slate-600 mb-2'>Already have an account? Please <Link to="/login" className='text-red-500 underline'>Log in</Link></p>
