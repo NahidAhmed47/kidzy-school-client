@@ -20,3 +20,9 @@
 .badge{
     @apply absolute -top-4 -right-1 text-center
 }
+.input-field{
+    @apply w-full rounded outline-none h-8 px-2 text-black  mt-4 border-b
+}
+.sign-in-with-style{
+    @apply flex items-center justify-center w-full gap-1 py-1  rounded font-medium border text-slate-600 text-sm
+}
