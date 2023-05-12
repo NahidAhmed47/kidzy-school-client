@@ -6,23 +6,22 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Main from './layouts/Main';
-import Home from './components/Home';
-import Activity from './components/Activity';
-import Departments from './components/Departments';
-import Course from './components/Course';
-import Contract from './components/Contract';
-import Registration from './components/Registration';
-import ErrorPage from './components/ErrorPage';
-import Enrolled_course from './components/EnrolledCourse';
-import loadCourseData from './utilities/loadCourseData'
-import Bookmarked from './components/Bookmarked';
+import Activity from './pages/Activity/Activity';
+import Departments from './pages/Departments/Departments';
+import Contract from './pages/Contract/Contract';
+import Registration from './pages/Login/Registration';
+import ErrorPage from './pages/Shared/ErrorPage/ErrorPage';
+import Enrolled_course from './pages/EnrolledCourse/EnrolledCourse';
+import Bookmarked from './pages/BookmarkedCourse/Bookmarked';
+import Home from './pages/Home/Home/Home';
+import Courses from './pages/Courses/Courses';
 
 const router = createBrowserRouter([
   {
     path:'/',
     element: <Main></Main>,
     errorElement:<ErrorPage></ErrorPage>,
-    loader: loadCourseData,
+    loader: ()=> fetch('http://localhost:5000/courses'),
     children:[
       {
         path:'/',
@@ -37,8 +36,9 @@ const router = createBrowserRouter([
         element:<Departments></Departments>
       },
       {
-        path:'course',
-        element:<Course></Course>
+        path:'courses',
+        element:<Courses></Courses>,
+        loader: ()=> fetch('http://localhost:5000/courses'),
       },
       {
         path:'contract',
@@ -61,7 +61,9 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
+  <div className='max-w-[1400px] mx-auto'>
+    <React.StrictMode>
+       <RouterProvider router={router}></RouterProvider>
+     </React.StrictMode>,
+  </div>
 )
