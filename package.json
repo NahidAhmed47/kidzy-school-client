@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "firebase": "^9.21.0",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",
@@ -19,7 +20,8 @@
     "react-icons": "^4.8.0",
     "react-lottie": "^1.2.3",
     "react-router-dom": "^6.11.1",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.7.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

@@ -1,18 +1,44 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import LoginAnimation from '../Shared/LoginAnimation/LoginAnimation';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2'
 
 const Registration = () => {
     const [loginMode, setLoginMode] = useState(true);
+    const {createUser, updateUser} = useContext(AuthContext);
+    const [error, setError] = useState('')
     const handleForm = (e)=>{
         e.preventDefault();
+        setError('')
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photoUrl = form.photo.value;
         console.log(name, name, email, password, photoUrl)
+        createUser(email, password)
+        .then(result => {
+            updateUser(name, photoUrl)
+            .then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                
+                form.reset()
+            })
+            .catch(err => {
+                setError(err.message)
+            })
+            console.log(result.user)
+        })
+        .catch(err => {
+            setError(err.message)
+        })
     }
     return (
         <div className='min-h-[80vh] mt-20'>
@@ -21,7 +47,7 @@ const Registration = () => {
                     <LoginAnimation></LoginAnimation>
                 </div>
             <div className=' bg-white border shadow-xl h-fit max-w-[430px] mt-20 rounded-md p-4 md:px-8 md:py-12 my-10'>
-            {/* <p className='text-red-500 text-center my-2 '>{error}</p> */}
+            <p className='text-red-500 text-center my-2 '>{error}</p>
             <div className='flex justify-between'>
                         <button onClick={()=>setLoginMode(true)} className={loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Student Signup</button>
                         <button onClick={()=>setLoginMode(false)} className={!loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Teachers Signup</button>
