@@ -1,0 +1,81 @@
+{
+    "course_data":[
+        {
+            "id": 1,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 2,
+            "title":"Social Studies for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/14f7fae6c1dd_w240.webp"
+        },
+        {
+            "id": 3,
+            "title":"Math for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/ea12ad2d6dab_w240.webp"
+        },
+        {
+            "id": 4,
+            "title":"Figma designed essentials",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/6c3bcba679e2_w240.webp"
+        },
+        {
+            "id": 5,
+            "title":"Biology for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/6c3bcba679e2_w240.webp"
+        },
+        {
+            "id": 6,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 7,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 8,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 9,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 10,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        },
+        {
+            "id": 11,
+            "title":"Science for Kids",
+            "description":"This course is designed to introduce elementary and middle school students to various scientific topics. Filled with videos, quizzes and fun examples, the course will contribute to students' knowledge of several branches to help them make up topics the.",
+            "teacher":"Shahid Abdul",
+            "thumbnail":"https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image_variant/8772f5da05bb_w240.webp"
+        }
+    ]
+}
