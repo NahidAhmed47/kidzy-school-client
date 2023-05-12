@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { BookOpenIcon, UserCircleIcon, Bars3BottomRightIcon, ArrowDownTrayIcon } from '@heroicons/react/24/solid'
+import React, { useContext, useEffect, useState } from 'react';
+import { BookOpenIcon, Bars3BottomRightIcon, ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import {NavLink} from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
@@ -9,7 +9,13 @@ const Header = () => {
     const [isOpenMenu, setOpenMenu] = useState(false);
     const {user, LogOut} = useContext(AuthContext);
     const [openProfile, setOpenProfile] = useState(false);
-    console.log(user)
+    console.log(user?.email)
+    useEffect(()=>{
+        const url = `http://localhost:5000/all-users-role?email=${user?.email}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    },[user])
     // profile toggle
     const showProfile = () => {
         setOpenProfile(!openProfile);

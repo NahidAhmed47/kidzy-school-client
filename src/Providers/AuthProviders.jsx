@@ -33,6 +33,7 @@ const AuthProviders = ({children}) => {
     }
     // user monitoring 
     useEffect(()=>{
+        setLoading(true);
         const unsubscribe = auth.onAuthStateChanged((user)=>{
             setLoading(true);
             if(user){
