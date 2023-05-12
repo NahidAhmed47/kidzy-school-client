@@ -81,8 +81,8 @@ const Registration = () => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            name,
-                            email,
+                            name: result.user.displayName,
+                            email: result.user.email,
                             role: "user",
                             level: userLevel
                         })
@@ -102,7 +102,7 @@ const Registration = () => {
                     <LoginAnimation></LoginAnimation>
                 </div>
             <div className=' bg-white border shadow-xl h-fit max-w-[430px] mt-20 rounded-md p-4 md:px-8 md:py-12 my-10'>
-            <p className='text-red-500 text-center my-2 '>{error}</p>
+            <p className='text-red-500 text-center mb-5'>{error}</p>
             <div className='flex justify-between'>
                         <button onClick={()=>setLoginMode(true)} className={loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Student Signup</button>
                         <button onClick={()=>setLoginMode(false)} className={!loginMode ? "font-bold text-lg text-center font-serif  px-4 py-1 border text-white bg-orange-600 rounded-xl border-[#EA580C]" : "font-bold text-lg text-center font-serif primary-text-color px-3 py-1 border rounded-xl border-[#EA580C]"}>Teachers Signup</button>

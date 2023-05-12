@@ -10,7 +10,6 @@ const Header = () => {
     const {user, LogOut} = useContext(AuthContext);
     const [userLevel, setUserLevel] = useState(null);
     const [openProfile, setOpenProfile] = useState(false);
-    console.log(userLevel)
     useEffect(()=>{
         const url = `http://localhost:5000/all-users-role?email=${user?.email}`;
         fetch(url)
