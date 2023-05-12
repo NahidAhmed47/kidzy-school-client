@@ -26,3 +26,6 @@
 .sign-in-with-style{
     @apply flex items-center justify-center w-full gap-1 py-1  rounded font-medium border text-slate-600 text-sm
 }
+.hover-login-btn{
+    @apply  hover:scale-[0.98] duration-200 origin-center hover:shadow-md;
+}
