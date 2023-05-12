@@ -1,14 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import LoginAnimation from '../Shared/LoginAnimation/LoginAnimation';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2'
 
 const Registration = () => {
     const [loginMode, setLoginMode] = useState(true);
     const {createUser, updateUser, signInWithGoogle} = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleForm = (e)=>{
         e.preventDefault();
         setError('')
@@ -17,24 +18,42 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoUrl = form.photo.value;
-        console.log(name, name, email, password, photoUrl)
+        let userLevel;
+        if(loginMode){
+            userLevel = 'student';
+        }else{
+            userLevel = 'teacher';
+        }
         createUser(email, password)
         .then(result => {
             updateUser(name, photoUrl)
             .then(() => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: 'Sign up success!',
                     showConfirmButton: false,
                     timer: 1500
                   })
-                
+                    fetch('http://localhost:5000/users-role',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            role: "user",
+                            level: userLevel
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                  navigate('/',{replace: true})
                 form.reset()
             })
             .catch(err => {
                 setError(err.message)
             })
-            console.log(result.user)
         })
         .catch(err => {
             setError(err.message)
@@ -42,14 +61,35 @@ const Registration = () => {
     }
     // google sign in
     const googleSignIn = ()=>{
+        let userLevel;
+        if(loginMode){
+            userLevel = 'student';
+        }else{
+            userLevel = 'teacher';
+        }
         signInWithGoogle()
         .then(result =>{
             Swal.fire({
                 icon: 'success',
-                title: 'Your work has been saved',
+                title: 'Sign up success!',
                 showConfirmButton: false,
                 timer: 1500
               })
+              fetch('http://localhost:5000/users-role',{
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            role: "user",
+                            level: userLevel
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+              navigate('/',{replace: true})
         })
         .catch(err => {
             setError(err.message)

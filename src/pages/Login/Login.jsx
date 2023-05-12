@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import LoginAnimation from '../Shared/LoginAnimation/LoginAnimation';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const [loginMode, setLoginMode] = useState(true);
     const {loginWithEmail, signInWithGoogle} = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleForm = (e)=>{
         e.preventDefault();
         const form = e.target;
@@ -22,6 +23,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate('/',{replace: true})
             form.reset()
         })
         .catch(err => {
@@ -34,10 +36,11 @@ const Login = () => {
         .then(result =>{
             Swal.fire({
                 icon: 'success',
-                title: 'Your work has been saved',
+                title: 'Login Successfully',
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate('/',{replace: true})
         })
         .catch(err => {
             setError(err.message)

@@ -9,6 +9,7 @@ const Header = () => {
     const [isOpenMenu, setOpenMenu] = useState(false);
     const {user, LogOut} = useContext(AuthContext);
     const [openProfile, setOpenProfile] = useState(false);
+    console.log(user)
     // profile toggle
     const showProfile = () => {
         setOpenProfile(!openProfile);
