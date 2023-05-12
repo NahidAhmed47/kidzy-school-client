@@ -16,6 +16,7 @@ import Bookmarked from './pages/BookmarkedCourse/Bookmarked';
 import Home from './pages/Home/Home/Home';
 import Courses from './pages/Courses/Courses';
 import Login from './pages/Login/Login';
+import AuthProviders from './Providers/AuthProviders';
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-[1400px] mx-auto'>
     <React.StrictMode>
-       <RouterProvider router={router}></RouterProvider>
+       <AuthProviders>
+         <RouterProvider router={router}></RouterProvider>
+       </AuthProviders>
      </React.StrictMode>
   </div>
 )
