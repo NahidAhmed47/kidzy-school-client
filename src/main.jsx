@@ -6,17 +6,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Main from './layouts/Main';
-import Activity from './pages/Activity/Activity';
-import Departments from './pages/Departments/Departments';
-import Contract from './pages/Contract/Contract';
+import Activity from './pages/StudentsPages/Activity/Activity';
+import Departments from './pages/DefaultPages/Departments/Departments';
+import Contract from './pages/DefaultPages/Contract/Contract';
 import Registration from './pages/Login/Registration';
 import ErrorPage from './pages/Shared/ErrorPage/ErrorPage';
-import Enrolled_course from './pages/EnrolledCourse/EnrolledCourse';
-import Bookmarked from './pages/BookmarkedCourse/Bookmarked';
-import Home from './pages/Home/Home/Home';
-import Courses from './pages/Courses/Courses';
+import Enrolled_course from './pages/StudentsPages/EnrolledCourse/EnrolledCourse';
+import Bookmarked from './pages/StudentsPages/BookmarkedCourse/Bookmarked';
+import Home from './pages/DefaultPages/Home/Home';
+import Courses from './pages/DefaultPages/Courses/Courses';
 import Login from './pages/Login/Login';
 import AuthProviders from './Providers/AuthProviders';
+import Dashboard from './pages/TeachersPages/Dashboard/Dashboard';
+import Inbox from './pages/TeachersPages/Inbox/Inbox';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path:'contract',
         element:<Contract></Contract>
+      },
+      {
+        path:'dashboard',
+        element:<Dashboard></Dashboard>
+      },
+      {
+        path:'inbox',
+        element:<Inbox></Inbox>
       },
       {
         path:'enrolled_course',

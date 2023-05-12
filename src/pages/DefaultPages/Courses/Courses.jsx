@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import DisplayCourse from '../Shared/DisplayCours/DisplayCourse';
+import DisplayCourse from '../../Shared/DisplayCours/DisplayCourse';
 import { useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
