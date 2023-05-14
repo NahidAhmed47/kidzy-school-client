@@ -17,8 +17,9 @@ import Home from './pages/DefaultPages/Home/Home';
 import Courses from './pages/DefaultPages/Courses/Courses';
 import Login from './pages/Login/Login';
 import AuthProviders from './Providers/AuthProviders';
-import Dashboard from './pages/TeachersPages/Dashboard/Dashboard';
 import Inbox from './pages/TeachersPages/Inbox/Inbox';
+import DashboardLayout from './layouts/DashboardLayout';
+import Overview from './pages/TeachersPages/Dashboard/DashboardPages/Overview';
 
 const router = createBrowserRouter([
   {
@@ -49,10 +50,6 @@ const router = createBrowserRouter([
         element:<Contract></Contract>
       },
       {
-        path:'dashboard',
-        element:<Dashboard></Dashboard>
-      },
-      {
         path:'inbox',
         element:<Inbox></Inbox>
       },
@@ -71,6 +68,16 @@ const router = createBrowserRouter([
       {
         path:'login',
         element: <Login></Login>
+      }
+    ]
+  },
+  {
+    path:'/dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children:[
+      {
+        path: 'overview',
+        element: <Overview></Overview>
       }
     ]
   }

@@ -57,7 +57,7 @@ const Header = () => {
                 }
                 {
                     userLevel && userLevel[0]?.level === 'teacher' && <>
-                    <NavLink to="/dashboard"  className={({isActive})=> (isActive ? 'isActive' : '')}>Dashboard</NavLink>
+                    <NavLink to="/dashboard/overview"  className={({isActive})=> (isActive ? 'isActive' : '')}>Dashboard</NavLink>
                     <NavLink to="/inbox"  className={({isActive})=> (isActive ? 'isActive' : '')}><div className='relative'><span className='absolute -top-[4px] -right-3 px-1 text-center text-sm'>0</span><p>Inbox</p></div></NavLink>
                     </>
                 }
