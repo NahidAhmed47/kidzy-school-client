@@ -1,14 +1,44 @@
 import React from "react";
 
 const AddCourse = () => {
+    const handleFormData = (e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const title = form.title.value;
+        const name = form.name.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const thumbnail = form.banner.value;
+        const course = {
+            title,
+            name,
+            description,
+            price,
+            thumbnail
+        }
+        console.log(course)
+        fetch('http://localhost:5000/course',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(course)
+        })
+        .then(res => res.json())
+        .then(data => {console.log(data)
+            form.reset();
+        })
+        
+    }
   return (
     <div className="bg-slate-100 p-4 rounded-md">
-      <form>
+      <form onSubmit={handleFormData}>
         <div  className="grid grid-cols-2 gap-8">
           <div className="local-form-group">
             <label htmlFor="exampleInputEmail1">Course Title:</label>
             <input
               type="text"
+              name="title"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Title"
@@ -18,6 +48,7 @@ const AddCourse = () => {
             <label htmlFor="exampleInputEmail1">Teachers Name:</label>
             <input
               type="text"
+              name="name"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -28,6 +59,7 @@ const AddCourse = () => {
             <label htmlFor="exampleInputEmail1">Banner Url:</label>
             <input
               type="text"
+              name="banner"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -38,6 +70,7 @@ const AddCourse = () => {
             <label htmlFor="exampleInputEmail1">Price:</label>
             <input
               type="text"
+              name="price"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -49,6 +82,7 @@ const AddCourse = () => {
             <label htmlFor="exampleInputEmail1">Description: </label>
             <textarea
               type="text"
+              name="description"
               className="p-3 outline-none rounded"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
