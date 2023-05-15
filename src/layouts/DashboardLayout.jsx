@@ -11,7 +11,7 @@ const DashboardLayout = () => {
             <div className='md:col-start-1 col-end-3 row-span-full border px-7 py-10 bg-slate-100'>
                 <Sidebar></Sidebar>
             </div>
-            <div className='w-full md:col-start-3 col-end-[-1]  row-span-full'>
+            <div className='w-full md:col-start-3 col-end-[-1]  row-span-full px-5 py-6'>
                 <Outlet></Outlet>
             </div>
         </div>

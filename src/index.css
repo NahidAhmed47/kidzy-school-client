@@ -35,3 +35,12 @@
 .dashboard-active{
     @apply flex gap-3 items-center px-4 py-2 rounded-md translate-x-2 scale-95 duration-300 origin-right text-white bg-orange-600
 }
+.local-form-group{
+    @apply flex flex-col gap-1
+}
+.local-form-group label{
+    @apply font-semibold text-orange-600 font-serif
+}
+.local-form-group input{
+    @apply  outline-none h-8 px-3 text-sm rounded
+}
