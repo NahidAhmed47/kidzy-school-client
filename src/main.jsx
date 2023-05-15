@@ -25,6 +25,7 @@ import PublishedCourses from './pages/TeachersPages/Dashboard/DashboardPages/Pub
 import Updates from './pages/TeachersPages/Dashboard/DashboardPages/Updates';
 import Preview from './pages/TeachersPages/Dashboard/DashboardPages/Preview';
 import Students from './pages/TeachersPages/Dashboard/DashboardPages/Students';
+import Delete from './pages/TeachersPages/Dashboard/DashboardPages/Delete';
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
         element: <AddCourse></AddCourse>
       },
       {
+        path: 'delete',
+        element: <Delete></Delete>
+      },
+      {
         path: 'published-courses',
         element: <PublishedCourses></PublishedCourses>
       },
@@ -103,7 +108,7 @@ const router = createBrowserRouter([
       {
         path: 'students',
         element: <Students></Students>
-      },
+      }
     ]
   }
 ])

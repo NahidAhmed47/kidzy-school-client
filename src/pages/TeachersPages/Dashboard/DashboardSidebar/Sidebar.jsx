@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaPlus, FaExternalLinkAlt, FaPencilAlt, FaRegPaperPlane, FaUserFriends } from "react-icons/fa";
+import { FaHome, FaPlus, FaExternalLinkAlt, FaPencilAlt, FaRegPaperPlane, FaUserFriends, FaTrashAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
@@ -16,6 +16,10 @@ const Sidebar = () => {
       <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='updates'>
         <FaPencilAlt className="w-6 h-6"></FaPencilAlt>
         <div className='text-base font-bold '>Updates</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='delete'>
+        <FaTrashAlt className="w-6 h-6"></FaTrashAlt>
+        <div className='text-base font-bold '>Delete</div>
       </NavLink>
       <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='published-courses'>
         <FaRegPaperPlane className="w-6 h-6"></FaRegPaperPlane>
