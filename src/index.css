@@ -32,3 +32,6 @@
 .side-nav{
     @apply flex gap-3 items-center px-4 bg-slate-200 py-2 rounded-md hover:translate-x-2 hover:scale-95 duration-300 origin-right text-slate-700 hover:text-white hover:bg-orange-600
 }
+.dashboard-active{
+    @apply flex gap-3 items-center px-4 py-2 rounded-md translate-x-2 scale-95 duration-300 origin-right text-white bg-orange-600
+}

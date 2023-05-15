@@ -20,6 +20,11 @@ import AuthProviders from './Providers/AuthProviders';
 import Inbox from './pages/TeachersPages/Inbox/Inbox';
 import DashboardLayout from './layouts/DashboardLayout';
 import Overview from './pages/TeachersPages/Dashboard/DashboardPages/Overview';
+import AddCourse from './pages/TeachersPages/Dashboard/DashboardPages/AddCourse';
+import PublishedCourses from './pages/TeachersPages/Dashboard/DashboardPages/PublishedCourses';
+import Updates from './pages/TeachersPages/Dashboard/DashboardPages/Updates';
+import Preview from './pages/TeachersPages/Dashboard/DashboardPages/Preview';
+import Students from './pages/TeachersPages/Dashboard/DashboardPages/Students';
 
 const router = createBrowserRouter([
   {
@@ -78,7 +83,27 @@ const router = createBrowserRouter([
       {
         path: 'overview',
         element: <Overview></Overview>
-      }
+      },
+      {
+        path: 'add-course',
+        element: <AddCourse></AddCourse>
+      },
+      {
+        path: 'published-courses',
+        element: <PublishedCourses></PublishedCourses>
+      },
+      {
+        path: 'updates',
+        element: <Updates></Updates>
+      },
+      {
+        path: 'preview',
+        element: <Preview></Preview>
+      },
+      {
+        path: 'students',
+        element: <Students></Students>
+      },
     ]
   }
 ])

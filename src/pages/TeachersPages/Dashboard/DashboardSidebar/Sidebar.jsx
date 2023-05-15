@@ -5,30 +5,30 @@ import { FaHome, FaPlus, FaExternalLinkAlt, FaPencilAlt, FaRegPaperPlane, FaUser
 const Sidebar = () => {
   return (
     <div className="space-y-5">
-      <div className="side-nav">
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='overview'>
         <FaHome className="w-6 h-6"></FaHome>
-        <NavLink className='text-base font-bold '>Overview</NavLink>
-      </div>
-      <div className="side-nav">
+        <div className='text-base font-bold '>Overview</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='add-course'>
         <FaPlus className="w-6 h-6"></FaPlus>
-        <NavLink className='text-base font-bold '>Add Course</NavLink>
-      </div>
-      <div className="side-nav">
+        <div className='text-base font-bold '>Add Course</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='updates'>
         <FaPencilAlt className="w-6 h-6"></FaPencilAlt>
-        <NavLink className='text-base font-bold '>Updates</NavLink>
-      </div>
-      <div className="side-nav">
+        <div className='text-base font-bold '>Updates</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='published-courses'>
         <FaRegPaperPlane className="w-6 h-6"></FaRegPaperPlane>
-        <NavLink className='text-base font-bold '>Published Courses</NavLink>
-      </div>
-      <div className="side-nav">
+        <div className='text-base font-bold '>Published Courses</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='preview'>
         <FaExternalLinkAlt className="w-6 h-6"></FaExternalLinkAlt>
-        <NavLink className='text-base font-bold '>Preview</NavLink>
-      </div>
-      <div className="side-nav">
+        <div className='text-base font-bold '>Preview</div>
+      </NavLink>
+      <NavLink className={({isActive})=> isActive ? 'dashboard-active' : 'side-nav'} to='students'>
         <FaUserFriends className="w-6 h-6"></FaUserFriends>
-        <NavLink className='text-base font-bold '>Students</NavLink>
-      </div>
+        <div className='text-base font-bold '>Students</div>
+      </NavLink>
     </div>
   );
 };
